@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 1.8s infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Laser Scanline Beam sweeping down */
+  @keyframes laserScan {
+    0% {
+      top: 0%;
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      top: 98%;
+      opacity: 0;
+    }
+  }
+
+  .animate-laserScan {
+    animation: laserScan 2s ease-in-out infinite;
+  }
+
+  /* Dual Pokédex Lid Door Opening Animation */
+  @keyframes pokedexDoorLeft {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes pokedexDoorRight {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-doorLeft {
+    animation: pokedexDoorLeft 0.35s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  }
+
+  .animate-doorRight {
+    animation: pokedexDoorRight 0.35s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  }
+
+  /* Pokeball Spinning Scan Ring */
+  @keyframes pokeballSpin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-pokeballSpin {
+    animation: pokeballSpin 8s linear infinite;
+  }
+}
+
+/* CRT Scanlines Overlay Texture */
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(220, 38, 38, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(220, 38, 38, 0.8);
+}
