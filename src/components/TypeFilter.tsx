@@ -36,7 +36,7 @@ export function TypeFilter({ selectedType, onChange }: TypeFilterProps) {
               value={type}
               className="bg-slate-900 text-slate-100"
             >
-              {config.icon} {capitalize(type)}
+              {capitalize(type)}
             </option>
           );
         })}

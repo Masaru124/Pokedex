@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { usePokemonDetail } from '@/hooks/usePokemonDetail';
 import { getTypeColor, capitalize } from '@/lib/typeColors';
 import { TypewriterText } from './TypewriterText';
-import { X, Heart, Ruler, Weight, Zap, Shield, Sparkles, ChevronDown, ChevronUp, User, Volume2, Cpu } from 'lucide-react';
+import { X, Heart, Ruler, Weight, Zap, Shield, Sparkles, ChevronDown, ChevronUp, User, Volume2, Cpu, AlertTriangle } from 'lucide-react';
 import { soundFx } from '@/lib/soundFx';
 
 interface PokemonModalProps {
@@ -180,7 +180,9 @@ export function PokemonModal({
         {/* Error State */}
         {error && !loading && (
           <div className="p-8 text-center space-y-4">
-            <div className="text-red-500 text-4xl">⚠️</div>
+            <div className="flex justify-center">
+              <AlertTriangle className="w-10 h-10 text-red-500" />
+            </div>
             <p className="text-slate-300 font-mono text-sm">{error}</p>
             <button
               type="button"
@@ -239,7 +241,7 @@ export function PokemonModal({
                             color: cfg.badgeText,
                           }}
                         >
-                          <span>{cfg.icon}</span>
+                          <cfg.Icon className="w-3.5 h-3.5" />
                           <span>{capitalize(type)}</span>
                         </span>
                       );

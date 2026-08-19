@@ -164,7 +164,7 @@ export function PokemonCard({
                   color: config.badgeText,
                 }}
               >
-                <span>{config.icon}</span>
+                <config.Icon className="w-3 h-3" />
                 <span>{capitalize(type)}</span>
               </span>
             );

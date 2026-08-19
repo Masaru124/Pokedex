@@ -56,7 +56,7 @@ export function CompareDrawer({
                 BATTLE COMPARISON TERMINAL
               </h2>
               <p className="text-xs text-slate-400 font-mono">
-                Select 2 Pokémon from grid cards using ⚔️ button to compare stats
+                Select 2 Pokémon from grid cards using compare button to compare stats
               </p>
             </div>
           </div>
@@ -95,12 +95,12 @@ export function CompareDrawer({
                   key={`empty-${idx}`}
                   className="flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-dashed border-slate-700 bg-slate-950/60 text-center space-y-2 min-h-[220px]"
                 >
-                  <span className="text-4xl opacity-40">⚔️</span>
+                  <Swords className="w-10 h-10 opacity-40 text-slate-400" />
                   <p className="text-xs font-bold font-mono text-amber-400">
                     Slot {idx + 1}: Empty
                   </p>
                   <p className="text-[11px] text-slate-400 font-mono max-w-xs">
-                    Click the ⚔️ button on any Pokémon card in the Pokédex grid to add it to comparison!
+                    Click the compare button on any Pokémon card in the Pokédex grid to add it to comparison!
                   </p>
                 </div>
               );

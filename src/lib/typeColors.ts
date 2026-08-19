@@ -1,4 +1,25 @@
 import { PokemonType } from '@/types/pokemon';
+import {
+  Flame,
+  Droplets,
+  Leaf,
+  Zap,
+  Eye,
+  Ghost,
+  Snowflake,
+  Sparkles,
+  Moon,
+  Circle,
+  Swords,
+  Skull,
+  Mountain,
+  Feather,
+  Bug,
+  Box,
+  Shield,
+  Sun,
+  LucideIcon,
+} from 'lucide-react';
 
 export interface TypeColorConfig {
   hex: string;
@@ -9,7 +30,7 @@ export interface TypeColorConfig {
   badgeText: string;
   border: string;
   glow: string;
-  icon: string;
+  Icon: LucideIcon;
 }
 
 export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
@@ -22,7 +43,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(239, 68, 68, 0.4)',
     glow: 'rgba(239, 68, 68, 0.35)',
-    icon: '🔥',
+    Icon: Flame,
   },
   water: {
     hex: '#3B82F6',
@@ -33,7 +54,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(59, 130, 246, 0.4)',
     glow: 'rgba(59, 130, 246, 0.35)',
-    icon: '💧',
+    Icon: Droplets,
   },
   grass: {
     hex: '#10B981',
@@ -44,7 +65,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(16, 185, 129, 0.4)',
     glow: 'rgba(16, 185, 129, 0.35)',
-    icon: '🌿',
+    Icon: Leaf,
   },
   electric: {
     hex: '#EAB308',
@@ -55,7 +76,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#0F172A',
     border: 'rgba(234, 179, 8, 0.5)',
     glow: 'rgba(234, 179, 8, 0.4)',
-    icon: '⚡',
+    Icon: Zap,
   },
   psychic: {
     hex: '#EC4899',
@@ -66,7 +87,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(236, 72, 153, 0.4)',
     glow: 'rgba(236, 72, 153, 0.35)',
-    icon: '🔮',
+    Icon: Eye,
   },
   ghost: {
     hex: '#8B5CF6',
@@ -77,7 +98,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(139, 92, 246, 0.4)',
     glow: 'rgba(139, 92, 246, 0.35)',
-    icon: '👻',
+    Icon: Ghost,
   },
   ice: {
     hex: '#06B6D4',
@@ -88,7 +109,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(6, 182, 212, 0.4)',
     glow: 'rgba(6, 182, 212, 0.35)',
-    icon: '❄️',
+    Icon: Snowflake,
   },
   dragon: {
     hex: '#6366F1',
@@ -99,7 +120,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(99, 102, 241, 0.4)',
     glow: 'rgba(99, 102, 241, 0.35)',
-    icon: '🐉',
+    Icon: Sparkles,
   },
   dark: {
     hex: '#4B5563',
@@ -110,7 +131,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(75, 85, 99, 0.4)',
     glow: 'rgba(75, 85, 99, 0.35)',
-    icon: '🌙',
+    Icon: Moon,
   },
   fairy: {
     hex: '#F472B6',
@@ -121,7 +142,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(244, 114, 182, 0.4)',
     glow: 'rgba(244, 114, 182, 0.35)',
-    icon: '✨',
+    Icon: Sun,
   },
   normal: {
     hex: '#9CA3AF',
@@ -132,7 +153,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(156, 163, 175, 0.4)',
     glow: 'rgba(156, 163, 175, 0.35)',
-    icon: '⚪',
+    Icon: Circle,
   },
   fighting: {
     hex: '#DC2626',
@@ -143,7 +164,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(220, 38, 38, 0.4)',
     glow: 'rgba(220, 38, 38, 0.35)',
-    icon: '🥊',
+    Icon: Swords,
   },
   poison: {
     hex: '#A855F7',
@@ -154,7 +175,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(168, 85, 247, 0.4)',
     glow: 'rgba(168, 85, 247, 0.35)',
-    icon: '☠️',
+    Icon: Skull,
   },
   ground: {
     hex: '#D97706',
@@ -165,7 +186,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(217, 119, 6, 0.4)',
     glow: 'rgba(217, 119, 6, 0.35)',
-    icon: '⛰️',
+    Icon: Mountain,
   },
   flying: {
     hex: '#818CF8',
@@ -176,7 +197,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(129, 140, 248, 0.4)',
     glow: 'rgba(129, 140, 248, 0.35)',
-    icon: '🦅',
+    Icon: Feather,
   },
   bug: {
     hex: '#65A30D',
@@ -187,7 +208,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(101, 163, 13, 0.4)',
     glow: 'rgba(101, 163, 13, 0.35)',
-    icon: '🐛',
+    Icon: Bug,
   },
   rock: {
     hex: '#B45309',
@@ -198,7 +219,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(180, 83, 9, 0.4)',
     glow: 'rgba(180, 83, 9, 0.35)',
-    icon: '🪨',
+    Icon: Box,
   },
   steel: {
     hex: '#64748B',
@@ -209,7 +230,7 @@ export const TYPE_COLORS: Record<PokemonType, TypeColorConfig> = {
     badgeText: '#FFFFFF',
     border: 'rgba(100, 116, 139, 0.4)',
     glow: 'rgba(100, 116, 139, 0.35)',
-    icon: '⚙️',
+    Icon: Shield,
   },
 };
 
