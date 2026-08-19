@@ -6,7 +6,6 @@ const STORAGE_KEY = 'pokemon_explorer_dark_mode';
 
 export function useDarkMode() {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     try {
@@ -22,8 +21,6 @@ export function useDarkMode() {
       }
     } catch (e) {
       console.error('Failed to initialize dark mode:', e);
-    } finally {
-      setIsLoaded(true);
     }
   }, []);
 
@@ -44,5 +41,5 @@ export function useDarkMode() {
     });
   }, []);
 
-  return { isDarkMode, toggleDarkMode, isLoaded };
+  return { isDarkMode, toggleDarkMode };
 }

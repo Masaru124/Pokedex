@@ -75,7 +75,6 @@ export function toCardViewModel(detail: RawPokemonDetail): PokemonCardViewModel 
     artwork,
     shinyArtwork,
     sprite: detail.sprites.front_default || artwork,
-    shinySprite: detail.sprites.front_shiny || shinyArtwork,
     cryAudioUrl,
     baseHp: getStat('hp'),
     baseAttack: getStat('attack'),

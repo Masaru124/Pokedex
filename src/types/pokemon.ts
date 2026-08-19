@@ -59,7 +59,6 @@ export interface PokemonCardViewModel {
   artwork: string;
   shinyArtwork: string;
   sprite: string;
-  shinySprite: string;
   cryAudioUrl: string;
   baseHp: number;
   baseAttack: number;

@@ -26,7 +26,6 @@ export function PokemonModal({
   const [showAllMoves, setShowAllMoves] = useState(false);
   const [animateStats, setAnimateStats] = useState(false);
   const [isShiny, setIsShiny] = useState(initialShiny);
-  const [isScanning, setIsScanning] = useState(true);
 
   useEffect(() => {
     setIsShiny(initialShiny);
@@ -36,13 +35,8 @@ export function PokemonModal({
     if (pokemon) {
       soundFx.playPokedexScan();
       soundFx.playPokemonCry(pokemon.id, pokemon.cryAudioUrl);
-      setIsScanning(true);
-      const scanTimer = setTimeout(() => setIsScanning(false), 1200);
       const timer = setTimeout(() => setAnimateStats(true), 50);
-      return () => {
-        clearTimeout(scanTimer);
-        clearTimeout(timer);
-      };
+      return () => clearTimeout(timer);
     } else {
       setAnimateStats(false);
     }

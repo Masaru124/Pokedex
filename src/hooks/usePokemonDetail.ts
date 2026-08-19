@@ -8,20 +8,17 @@ export function usePokemonDetail(nameOrId: string | number | null) {
   const [data, setData] = useState<PokemonDetailViewModel | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [isNotFound, setIsNotFound] = useState<boolean>(false);
 
   const fetchDetail = useCallback(async (signal?: AbortSignal) => {
     if (!nameOrId) {
       setData(null);
       setLoading(false);
       setError(null);
-      setIsNotFound(false);
       return;
     }
 
     setLoading(true);
     setError(null);
-    setIsNotFound(false);
 
     try {
       const result = await getPokemonDetail(nameOrId, signal);
@@ -29,7 +26,6 @@ export function usePokemonDetail(nameOrId: string | number | null) {
     } catch (err: any) {
       if (err.name === 'AbortError') return;
       if (err instanceof ApiError && err.isNotFound) {
-        setIsNotFound(true);
         setError(`No Pokémon found matching "${nameOrId}"`);
       } else {
         setError(err.message || 'Failed to load Pokémon details.');
@@ -49,5 +45,5 @@ export function usePokemonDetail(nameOrId: string | number | null) {
     fetchDetail();
   }, [fetchDetail]);
 
-  return { data, loading, error, isNotFound, retry };
+  return { data, loading, error, retry };
 }

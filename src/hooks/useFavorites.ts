@@ -6,7 +6,6 @@ const STORAGE_KEY = 'pokemon_explorer_favorites';
 
 export function useFavorites() {
   const [favorites, setFavorites] = useState<number[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     try {
@@ -16,8 +15,6 @@ export function useFavorites() {
       }
     } catch (e) {
       console.error('Failed to read favorites from localStorage:', e);
-    } finally {
-      setIsLoaded(true);
     }
   }, []);
 
@@ -38,5 +35,5 @@ export function useFavorites() {
     [favorites]
   );
 
-  return { favorites, toggleFavorite, isFavorite, isLoaded };
+  return { favorites, toggleFavorite, isFavorite };
 }

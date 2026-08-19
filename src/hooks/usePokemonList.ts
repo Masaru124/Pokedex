@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { PokemonCardViewModel, PokemonType, SortOption } from '@/types/pokemon';
-import { getEnrichedList, getEnrichedListByType, getPokemonDetail, searchPokemonPartial, ApiError } from '@/services/pokemonApi';
+import { getEnrichedList, getEnrichedListByType, searchPokemonPartial, ApiError } from '@/services/pokemonApi';
 
 interface UsePokemonListParams {
   searchQuery: string;
@@ -26,7 +26,6 @@ export function usePokemonList({
   const [error, setError] = useState<string | null>(null);
   const [isNotFound, setIsNotFound] = useState<boolean>(false);
   const [hasMore, setHasMore] = useState<boolean>(false);
-  const [totalCount, setTotalCount] = useState<number>(0);
 
   // Track latest request ID to prevent race conditions
   const requestIdRef = useRef<number>(0);
@@ -68,11 +67,9 @@ export function usePokemonList({
               setItems([]);
               setIsNotFound(true);
               setHasMore(false);
-              setTotalCount(0);
             } else {
               setItems((prev) => (isInitial ? filteredItems : [...prev, ...filteredItems]));
               setHasMore(searchResult.hasMore);
-              setTotalCount(searchResult.total);
             }
           }
           return;
@@ -84,7 +81,6 @@ export function usePokemonList({
           if (requestIdRef.current === currentRequestId) {
             setItems((prev) => (isInitial ? result.items : [...prev, ...result.items]));
             setHasMore(result.hasMore);
-            setTotalCount(result.total);
           }
           return;
         }
@@ -94,7 +90,6 @@ export function usePokemonList({
         if (requestIdRef.current === currentRequestId) {
           setItems((prev) => (isInitial ? result.items : [...prev, ...result.items]));
           setHasMore(result.hasMore);
-          setTotalCount(result.total);
         }
       } catch (err: any) {
         if (err.name === 'AbortError') return;
@@ -175,6 +170,5 @@ export function usePokemonList({
     hasMore: favoritesOnly ? false : hasMore,
     loadMore,
     retry,
-    totalCount,
   };
 }
